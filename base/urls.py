@@ -9,4 +9,9 @@ urlpatterns=[
     path('create-room',views.createroom,name="create-room"),
     path('update-room/<str:pk>/',views.updateroom,name="update-room"),
     path('delete-room/<str:pk>/',views.deleteroom,name="delete-room"),
+
+    path('login/',views.login_page,name="login"),
+    path('logout/',views.logoutuser,name="logout"),
+
+
 ]
