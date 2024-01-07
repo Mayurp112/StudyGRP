@@ -152,3 +152,13 @@ def registerpage(request):
 
     context={'page':page,'form':form}
     return render(request,'base/login_register.html',context)
+
+def userProfile(request,pk):
+    user=User.objects.get(id=pk)
+
+    room=user.room_set.all()
+    room_messages=user.message_set.all()
+    topic=Topic.objects.all()
+
+    context={'user':user,'room':room,'room_messages':room_messages,'topic':topic}
+    return render(request,'base/profile.html',context)

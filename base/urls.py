@@ -13,9 +13,16 @@ urlpatterns=[
     path('delete-room/<str:pk>/',views.deleteroom,name="delete-room"),
     path('delete-message/<str:pk>/',views.deletemessage,name="delete-message"),
 
+    path('profile/<int:pk>/', views.userProfile, name="profile"),
+
+
     path('login/',views.login_page,name="login"),
     path('register/',views.registerpage,name="register"),
     path('logout/',views.logoutuser,name="logout"),
+    
+    
+
+    
 
 
 ]
