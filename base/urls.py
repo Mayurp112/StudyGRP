@@ -19,10 +19,10 @@ urlpatterns=[
     path('login/',views.login_page,name="login"),
     path('register/',views.registerpage,name="register"),
     path('logout/',views.logoutuser,name="logout"),
-    
-    
 
-    
+    path('update-user/', views.updateUser, name="update-user"),
 
+    path('topics/', views.topicsPage, name="topics"),
+    
 
 ]
