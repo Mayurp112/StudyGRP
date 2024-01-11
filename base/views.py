@@ -25,7 +25,7 @@ def home(request):
     topic=Topic.objects.all()    
     context={'room':room,'topic':topic,'room_count':room_count,'room_messages':room_messages}
     
-    return render(request,'base/index.html',context)
+    return render(request,'base/home.html',context)
 
 def room(request,pk):
     room=Room.objects.get(id=pk)
