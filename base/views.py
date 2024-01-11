@@ -8,6 +8,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.core.mail import send_mail
+
 
 
 # Create your views here.
@@ -158,6 +160,7 @@ def registerPage(request):
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
+            send_email()
             login(request, user)
             return redirect('home')
         else:
@@ -194,4 +197,19 @@ def updateUser(request):
             return redirect('profile', pk=user.id)
 
     return render(request, 'base/update-user.html', {'form': form})
+
+
+# send email view 
+
+def send_email(request):
+    subject = ' Registration Done...'
+    message = '  Your Registration Is Complete .....Thanks for Part of StudyGroup Community'
+    from_email = 'studygroupofficialteam@gmail.com'
+    email=request.POST.get('email')
+    recipient_list = [email]
+
+    send_mail(subject, message, from_email, recipient_list)
+
+    return HttpResponse('Email sent successfully')
+
 
